@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="wuxian.com.liu"
+    android:versionCode="1"
+    android:versionName="1.0.0"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <application
+        android:name=".OpenVPNApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/icon"
+        android:label="@string/app">
+        <service
+            android:name=".OpenVPNService"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".OpenVPNClient"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".OpenVPNRebootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".OpenVPNAttachmentReceiver">
+            <intent-filter
+                android:icon="@drawable/icon"
+                android:label="OpenVPN Profile"
+                android:priority="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="application/x-openvpn-profile" />
+            </intent-filter>
+            <intent-filter
+                android:icon="@drawable/icon"
+                android:label="OpenVPN Profile"
+                android:priority="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.ovpn" />
+            </intent-filter>
+            <intent-filter
+                android:icon="@drawable/icon"
+                android:label="OpenVPN Profile"
+                android:priority="1">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.ovpn"
+                    android:scheme="file" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpenVPNPrefs" />
+        <activity android:name=".FileDialog" />
+        <activity android:name=".OpenVPNStats" />
+        <activity android:name=".OpenVPNLog" />
+        <activity android:name=".OpenVPNAbout" />
+        <activity android:name=".OpenVPNImportProfile" />
+        <activity android:name=".OpenVPNAddProxy" />
+        <activity android:name=".OpenVPNAddShortcut" />
+        <activity
+            android:name=".OpenVPNProxyCreds"
+            android:theme="@android:style/Theme.Holo.Dialog" />
+        <activity android:name=".OpenVPNHelp" />
+        <activity
+            android:name=".OpenVPNDisconnect"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay" />
+    </application>
+</manifest>
