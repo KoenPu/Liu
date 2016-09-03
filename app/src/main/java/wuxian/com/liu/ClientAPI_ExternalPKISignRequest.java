@@ -3,7 +3,7 @@
   * Copyright (C) 2013 Hensence.com
   */
 
-package net.openvpn.openvpn;
+package wuxian.com.liu;
 
 
 public class ClientAPI_ExternalPKISignRequest extends ClientAPI_ExternalPKIRequestBase {

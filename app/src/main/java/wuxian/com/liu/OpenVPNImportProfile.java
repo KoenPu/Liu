@@ -3,13 +3,13 @@
   * Copyright (C) 2013 Hensence.com
   */
 
-package net.openvpn.openvpn;
+package wuxian.com.liu;
 
 import android.view.View;
 import android.widget.TextView;
 import java.util.Set;
 import android.widget.EditText;
-import [Ljava.lang.String;
+import java.lang.String;
 import java.util.Arrays;
 import android.widget.AutoCompleteTextView;
 import android.widget.ArrayAdapter;

@@ -3,7 +3,7 @@
   * Copyright (C) 2013 Hensence.com
   */
 
-package net.openvpn.openvpn;
+package wuxian.com.liu;
 
 import java.io.IOException;
 import java.io.File;

@@ -3,7 +3,7 @@
   * Copyright (C) 2013 Hensence.com
   */
 
-package net.openvpn.openvpn;
+package wuxian.com.liu;
 
 import java.security.cert.X509Certificate;
 import java.security.cert.CertificateException;
