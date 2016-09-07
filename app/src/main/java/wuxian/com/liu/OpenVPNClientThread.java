@@ -91,9 +91,9 @@ public class OpenVPNClientThread extends ClientAPI_OpenVPNClient implements Runn
         OpenVPNClientThread.EventReceiver p = parent;
         if(p != null) {
             m_connect_status = connect_status;
-            parent = 0x0;
-            tun_builder = 0x0;
-            thread = 0x0;
+            parent = null;
+            tun_builder = null;
+            thread = null;
         }
         return p;
     }

@@ -24,12 +24,12 @@ public class ClientAPI_Config {
     }
     
     public synchronized void delete() {
-        if(swigCPtr [cmp] 0x0 != 0) {
+        if(swigCPtr != 0) {
             if(swigCMemOwn) {
                 swigCMemOwn = false;
                 ovpncliJNI.delete_ClientAPI_Config(swigCPtr);
             }
-            swigCPtr = 0x0;
+            swigCPtr = 0;
         }
     }
     

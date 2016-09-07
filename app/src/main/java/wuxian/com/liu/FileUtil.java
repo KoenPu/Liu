@@ -8,15 +8,9 @@ package wuxian.com.liu;
 import java.io.IOException;
 import java.io.File;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.AssetManager;
 import java.io.InputStream;
 import java.io.FileInputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import android.net.Uri;
-import android.content.ContentResolver;
 import java.io.FileOutputStream;
 
 public class FileUtil {
@@ -29,19 +23,19 @@ public class FileUtil {
     }
     
     public static String readUri(Context context, Uri uri, long max_len) throws IOException {
-        return readStream(getContentResolver().openInputStream(uri), max_len, uriBasename(uri));
+        return readStream(context.getContentResolver().openInputStream(uri), max_len, uriBasename(uri));
     }
     
     public static String readAsset(Context context, String filename) throws IOException {
-        return readStream(getResources().getAssets().open(filename), 0x0);
+        return readStream(context.getResources().getAssets().open(filename), 0x0);
     }
     
     public static String readFileAppPrivate(Context context, String filename) throws IOException {
-        return readStream(openFileInput(filename), 0x0);
+        return readStream(context.openFileInput(filename), 0x0);
     }
     
     public static void writeFileAppPrivate(Context context, String filename, String content) throws IOException {
-        FileOutputStream fos = openFileOutput(filename, 0x0);
+        FileOutputStream fos = context.openFileOutput(filename, 0x0);
         fos.write(content.getBytes());
         fos.close();
     }

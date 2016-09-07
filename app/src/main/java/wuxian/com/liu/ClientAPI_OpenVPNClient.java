@@ -22,7 +22,7 @@ public class ClientAPI_OpenVPNClient extends ClientAPI_TunBuilderBase {
     }
     
     public synchronized void delete() {
-        if(swigCPtr [cmp] 0x0 != 0) {
+        if(swigCPtr != 0) {
             if(swigCMemOwn) {
                 swigCMemOwn = false;
                 ovpncliJNI.delete_ClientAPI_OpenVPNClient(swigCPtr);

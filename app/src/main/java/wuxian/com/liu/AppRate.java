@@ -26,9 +26,9 @@ public class AppRate implements DialogInterface.OnClickListener, DialogInterface
     private static final String TAG = "AppRate";
     private Activity hostActivity;
     private SharedPreferences preferences;
-    private AlertDialog.Builder dialogBuilder = 0x0;
-    private long minLaunchesUntilPrompt = 0xa;
-    private long minDaysUntilPrompt = 0x7;
+    private AlertDialog.Builder dialogBuilder = null;
+    private long minLaunchesUntilPrompt = 10;
+    private long minDaysUntilPrompt = 7;
     
     public AppRate(Activity hostActivity) {
         hostActivity = hostActivity;
